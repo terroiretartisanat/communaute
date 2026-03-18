@@ -1,16 +1,40 @@
-## Hi there 👋
+# H1 - Largest Heading  
+## H2 - Second Largest  
+### H3 - Subheading  
+#### H4 - Smaller Heading  
+##### H5 - Tiny Heading  
+###### H6 - Smallest Heading  
 
-<!--
-**terroiretartisanat/terroiretartisanat** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+- **Bold** → `**Bold**` → **Bold**  
+- *Italic* → `*Italic*` → *Italic*  
+- ~~Strikethrough~~ → `~~Strikethrough~~` → ~~Strikethrough~~  
+- <sup>Superscript</sup> → `<sup>Superscript</sup>`  
+- <sub>Subscript</sub> → `<sub>Subscript</sub>`  
 
-Here are some ideas to get you started:
+### 📋 Lists  
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+#### Bullet List  
+- Item 1  
+- Item 2  
+- Item 3  
+
+#### Numbered List  
+1. First Item  
+2. Second Item  
+3. Third Item  
+
+### 🔗 Links & Images  
+
+[Visit Online Markdown Editor](https://onlinemarkdown.com)  
+
+![Markdown Logo](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)
+
+### 📊 Tables
+| Feature | Supported |
+| ------------- | ------ |
+| Bold/Italic   | ✅ Yes |
+| Lists         | ✅ Yes |
+| Code Blocks   | ✅ Yes |
+| Tables        | ✅ Yes |
+| Image         | ✅ Yes |
+| Link          | ✅ Yes |
