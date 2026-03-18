@@ -1,49 +1,122 @@
-<html>
-  <head>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terroir et Artisanat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function emergencyExit() {
+        try {
+            // Replace current history entry so back won't return here
+            window.location.replace("https://www.google.com/search?q=meteo+saguenay");
+        } catch (e) {
+            console.error("Redirect failed:", e);
+            window.location.href="https://www.google.com/search?q=meteo+saguenay";
+            alert("Unable to redirect.");
+        }
+    }
+  </script>
     
-    <script>
-      function emergencyExit() {
-          try {
-              // Replace current history entry so back won't return here
-              window.location.replace("https://www.google.com/search?q=meteo+saguenay");
-          } catch (e) {
-              console.error("Redirect failed:", e);
-              window.location.href="https://www.google.com/search?q=meteo+saguenay";
-              alert("Unable to redirect.");
-          }
-      }
-    </script>
-    
-    <style>
-      footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        border-top: 2px solid #000; /* Footer border */
-        background-color: #f1f1f1;
-        text-align: center;
-      }
-      
-      header {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        border-top: 2px solid #000; /* Footer border */
-        background-color: #f1f1f1;
-        text-align: center;
-      }
-      
-    </style>
-  </head>
-  <body>
-    <div id="header" onclick="emergencyExit()">
-      Sorti d'urgence - cliquer ici
-    </div>
-    .........
-    <div id="footer" onclick="emergencyExit()">
-      Sorti d'urgence - cliquer ici
-    </div>
-  </body>
+  <style>
+    :root{
+      /* Adjust these to your link bars’ sizes */
+      --header-h: 60px;
+      --footer-h: 60px;
+      /* Use dynamic viewport to avoid mobile 100vh bugs */
+      --vh: 100dvh;
+    }
+
+    /* Prevent the page itself from scrolling */
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #111; /* optional */
+      color: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    /* Fixed emergency links (always visible) */
+    .exit-top, .exit-bottom {
+      position: fixed;
+      left: 0; right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      padding: .5rem 1rem;
+      background: #b91c1c; /* red-700 */
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .exit-top    { top: 0;    height: var(--header-h); }
+    .exit-bottom { bottom: 0; height: var(--footer-h); }
+
+    .exit-top a, .exit-bottom a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* PDF region fills the space between the fixed bars */
+    .pdf-wrap {
+      padding: 16px 0px;
+      position: fixed;
+      top: var(--header-h);
+      bottom: var(--footer-h);
+      left: 0; right: 0;
+      /* This is the ONLY scrollbar you'll see */
+      overflow: auto;
+      background: #1f2937; /* slate-800 */
+      /* Optional: prevent page-overscroll bounce on some browsers */
+      overscroll-behavior: contain;
+    }
+
+    /* Make the embedded viewer fill the container */
+    .pdf-frame, .pdf-embed, .pdf-object {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      /* If using PDF.js, it may have its own scroll; see “Notes” below */
+    }
+
+    #texticon {
+      letter-spacing: .1px;
+      content: "\2190";
+    }
+  </style>
+</head>
+<body>
+  <div class="exit-top" onclick="emergencyExit();">
+    <span>Sortie rapide </span><span id="texticon"><img src="exit.png" height="32"></span>
+  </div>
+
+  <div class="pdf-wrap">
+    <!-- Option 1: iframe to a PDF or a PDF.js viewer page -->
+    <iframe
+      class="pdf-frame"
+      src="info.pdf#zoom=page-width"
+      title="PDF viewer"
+      loading="eager"
+      referrerpolicy="no-referrer">
+    </iframe>
+
+    <!-- Option 2: native browser PDF renderer -->
+    <!--
+    <embed class="pdf-embed" src="/path/to/your.pdf#zoom=page-width" type="application/pdf" />
+    -->
+
+    <!-- Option 3: object tag -->
+    <!--
+    <object class="pdf-object" data="/path/to/your.pdf#zoom=page-width" type="application/pdf"></object>
+    -->
+  </div>
+
+  <div class="exit-bottom" onclick="emergencyExit();">
+    <span>Sortie rapide </span><span id="texticon"><img src="exit.png" height="32"></span>
+  </div>
+</body>
 </html>
