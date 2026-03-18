@@ -1,5 +1,19 @@
 <html>
   <head>
+    
+    <script>
+      function emergencyExit() {
+          try {
+              // Replace current history entry so back won't return here
+              window.location.replace("https://www.google.com/search?q=meteo+saguenay");
+          } catch (e) {
+              console.error("Redirect failed:", e);
+              window.location.href="https://www.google.com/search?q=meteo+saguenay";
+              alert("Unable to redirect.");
+          }
+      }
+    </script>
+    
     <style>
       footer {
         position: fixed;
@@ -24,6 +38,12 @@
     </style>
   </head>
   <body>
-   <a href="https://www.google.com/search?q=meteo+saguenay"> Sorti d'urgence - cliquer ici</a>
+    <div id="header" onclick="emergencyExit()">
+      Sorti d'urgence - cliquer ici
+    </div>
+    .........
+    <div id="footer" onclick="emergencyExit()">
+      Sorti d'urgence - cliquer ici
+    </div>
   </body>
 </html>
