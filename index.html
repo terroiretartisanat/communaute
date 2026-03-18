@@ -96,13 +96,16 @@
 
   <div class="pdf-wrap">
     <!-- Option 1: iframe to a PDF or a PDF.js viewer page -->
-    <iframe
+    <!--<iframe
       class="pdf-frame"
-      src="info.pdf#zoom=page-width"
+      src="1.pdf#zoom=page-width"
       title="PDF viewer"
       loading="eager"
       referrerpolicy="no-referrer">
     </iframe>
+    -->
+
+    <embed class="pdf-embed" src="1.pdf#zoom=page-width" type="application/pdf" />
 
     <!-- Option 2: native browser PDF renderer -->
     <!--
